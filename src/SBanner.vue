@@ -8,8 +8,15 @@
          viajam através da internet.
       </p>
       <form>
-        <input type="text" placeholder="Cole o seu link aqui">
-        <button>ENCURTAR</button>
+        <div class="box-input">
+          <input ref="input" type="text" placeholder="Cole o seu link aqui" :readonly="!show">
+          <transition name="fade">
+            <button v-if="!show" class="btn-delete" @click.prevent="deleteText">X</button>
+          </transition>
+        </div>
+        
+        <button v-if="show" class="btn-shorten" @click.prevent="shorten">ENCURTAR</button>
+        <button v-if="!show" class="btn-copy-url" @click.prevent="clipboard">COPIAR URL</button>
       </form>
     </div>
   </div>
@@ -20,7 +27,26 @@ import SIcon from "./SIcon.vue";
 
 export default {
   name: "s-banner",
-  components: { SIcon }
+  components: { SIcon },
+  data(){
+    return {
+      show: true
+    }
+  },
+  methods: {
+    shorten(){
+      this.show = false;
+      this.$refs.input.value = "http://chr.dc/xyzxyz";
+    },
+    clipboard(){
+      this.$refs.input.select();
+      document.execCommand("copy");
+    },
+    deleteText(){
+      this.$refs.input.value = "";
+      this.show = true;
+    }
+  }
 };
 </script>
 
@@ -74,30 +100,53 @@ input {
   }
 
   .content form input {
-    color: #ff6e14;
+    color: #FFF;
     background: none;
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 0;
     width: 400px;
     height: 35px;
     border: none;
     border-bottom: 2px solid #ff6e14;
+    font-weight: 600;
   }
 
   .content form input:focus {
     outline: none;
   }
 
-  .content form button {
+  .btn-shorten, .btn-copy-url {
     background: #ff6e14;
     border: none;
     color: #fff;
-    height: 35px;
+    height: 40px;
+    width: 150px;
     padding-left: 20px;
     padding-right: 20px;
-    font-weight: bold;
     vertical-align: bottom;
     margin-left: 10px;
+    cursor: pointer;
+    outline: none;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  .box-input {
+    position: relative;
+    display: inline-block;
+  }
+
+  .btn-delete {
+    background: transparent;
+    position: absolute;
+    cursor: pointer;
+    color: #FFF;
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 35px;
+    right: 0;
+    top: 0;
   }
 
   @media (min-width: 320px) and (max-width: 425px) {
@@ -116,19 +165,24 @@ input {
     .content p {
       font-size: 1em;
     }
-  }
 
-  @media (width: 320px) {
-    .content form input {
+    & .content form input {
       margin-bottom: 20px;
-      width: 280px;
+      width: 250px;
+      margin:0;
     }
 
-    .content form button {
-      padding-right: 90px;
-      padding-left: 90px;
-      margin: 0;
+    .btn-shorten, .btn-copy-url  {
+      margin-left: 10px;
+      font-size: 12px;
+      width: 130px;
     }
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+  opacity: 0;
 }
 </style>
