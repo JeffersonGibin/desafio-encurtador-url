@@ -132,7 +132,6 @@ export default {
 
   @media (min-width: 320px) and (max-width: 425px) {
     & {
-      max-width: 320px;
       max-height: 350px;
       font-family: "Roboto", Arial;
 
