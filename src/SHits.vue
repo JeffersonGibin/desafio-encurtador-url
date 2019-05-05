@@ -26,9 +26,12 @@ export default {
   display: flex;
   padding: 40px;
   color: #777;
+  position: relative;
+  padding-top: 60px;
 
   .content {
     max-width: 200px;
+    height: 130px;
   }
 
   h1 {
@@ -52,6 +55,17 @@ export default {
     font-size: 15px;
   }
 
+  &:before {
+    content: "";
+    position: absolute;
+    top:0;
+    left: 50%;
+    margin-left: -35px;
+    border-color: #fff transparent transparent;
+    border-style: solid;
+    border-width: 35px  35px  0;
+  }  
+
   @media (min-width: 320px) and (max-width: 425px) {
     h1 {
       font-size: 28px;
@@ -65,18 +79,6 @@ export default {
       font-size: 14px;
     }
   }
-
-  &:before {
-    content: "";
-    height: 0;
-    width: 0;
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    margin-top: -88px;
-    border-color: #fff transparent transparent;
-    border-style: solid;
-    border-width: 35px  35px  0;
-  }  
 }
 </style>
+
