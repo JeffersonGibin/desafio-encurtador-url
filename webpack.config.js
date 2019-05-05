@@ -5,8 +5,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: './dist/',
+    path: path.resolve(__dirname, '/dist'),
+    publicPath: './dist/' ,
     filename: 'shortener.js'
   },
   module: {
@@ -103,8 +103,7 @@ if (process.env.NODE_ENV === 'production') {
         },
         sourceMap: true
       }
-  }
-),
+  }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
