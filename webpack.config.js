@@ -5,8 +5,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '/dist'),
-    publicPath: './dist/' ,
+    path: path.resolve(__dirname, './dist'),
+    publicPath: process.env.NODE_ENV == 'production' ? './dist/' : '/dist/',
     filename: 'shortener.js'
   },
   module: {
