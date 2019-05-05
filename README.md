@@ -1,4 +1,5 @@
-# desafio-encurtador-url
+# Encurtador de URL
+
 Desafio proposto pela Charodic para criar uma Lading Page simulando um encurtador de Links.
 
 Siga as instruções a seguir para executar ou fazer deploy do projeto.
