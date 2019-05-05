@@ -74,7 +74,6 @@ input {
   }
 
   .content form input {
-    border-bottom: 2px solid #ff6e14;
     color: #ff6e14;
     background: none;
     font-size: 18px;
@@ -82,6 +81,7 @@ input {
     width: 400px;
     height: 35px;
     border: none;
+    border-bottom: 2px solid #ff6e14;
   }
 
   .content form input:focus {
