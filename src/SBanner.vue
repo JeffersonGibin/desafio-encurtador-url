@@ -35,8 +35,12 @@ export default {
   },
   methods: {
     shorten(){
-      this.show = false;
-      this.$refs.input.value = "http://chr.dc/xyzxyz";
+      let input = this.$refs.input;
+
+      if (input.value.length && input.value.length >= 3) {
+        this.show = false;
+        input.value = "http://chr.dc/xyzxyz";
+      }
     },
     clipboard(){
       this.$refs.input.select();
@@ -94,6 +98,7 @@ input {
     margin-bottom: 15px;
     font-size: 45px;
   }
+  
   .content p {
     font-family: "Roboto", Arial;
     font-size: 24px;
@@ -151,11 +156,13 @@ input {
 
   @media (min-width: 320px) and (max-width: 425px) {
     .content {
-      padding: 15px;
+      padding: 30px;
     }
 
     .content form input {
       width: 200px;
+      font-weight: normal;
+      font-size: 14px;
     }
 
     .content h1 {
@@ -166,23 +173,34 @@ input {
       font-size: 1em;
     }
 
-    & .content form input {
-      margin-bottom: 20px;
-      width: 250px;
-      margin:0;
+    .content form input {
+      width: 100%;
+    }
+
+    .box-input {
+      width: 100%;
     }
 
     .btn-shorten, .btn-copy-url  {
-      margin-left: 10px;
-      font-size: 12px;
-      width: 130px;
+      width: 100%;
+      font-size: 14px;
+      margin: 15px 0 0 0;
+    }
+
+    input {
+      @include placeholder {
+        color: #ff6e14;
+        font-size: 16px;
+      }
     }
   }
 }
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>
