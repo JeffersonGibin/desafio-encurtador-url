@@ -62,11 +62,13 @@ export default {
     justify-content: center;
     align-items: center;
     display: flex;
+    padding: 25px;
 
   .content {
     max-width: 500px;
-    max-height: 350px;
+    max-height: 320px;
     margin-top: 20px;
+    width: 100%;
   }
 
   h1 {
@@ -78,7 +80,7 @@ export default {
   }
 
   ul {
-    margin: 20px;
+    width: 100%;
   }
 
   ul li {
@@ -134,6 +136,7 @@ export default {
     & {
       max-height: 350px;
       font-family: "Roboto", Arial;
+      padding: 0px;
 
       ul li span {
         width: 50px;
@@ -143,8 +146,15 @@ export default {
         font-size: 14px;
       }
 
+      .content {
+        max-width: 320px;
+        max-height: none;
+        margin-top: auto;
+        padding: 20px
+      }
+
       h1 {
-        font-size: 20px;
+        font-size: 25px;
         margin-top: 5px;
         margin-bottom: 5px;
       }
