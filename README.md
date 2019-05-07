@@ -2,14 +2,14 @@
 
 Desafio proposto pela Charodic para criar uma Lading Page simulando um encurtador de Links.
 
-Siga as instruções a seguir para executar ou fazer deploy do projeto.
+Siga as instruções a seguir para executar o projeto em modo desenvolvimento ou produção.
 
-Executa
+Desenvolvimento 
 ``
 npm run dev
 ``
 
-Deploy
+Produção
 ``
 npm run build
 ``
