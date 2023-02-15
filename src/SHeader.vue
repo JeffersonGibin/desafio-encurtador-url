@@ -1,7 +1,7 @@
 <template>
   <header class="s-header">
     <a href="#">
-      <img id="logo" src="./assets\img\logo-chaordic.png" alt="Logo"/>
+       <img src="./assets/img/logo-chaordic.png" alt="Logo">
     </a>
   </header>
 </template>
